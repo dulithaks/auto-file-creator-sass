@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 # Create scss folder
 mkdir -p scss
 cd scss
@@ -26,14 +25,15 @@ cd pages
 touch _home.scss
 
 # Create main file
+# Note: abstracts must be first
 cd ..
+echo "@import \"abstracts/variables\";
+@import \"abstracts/mixins\";
+@import \"abstracts/mixins\";" >> main.scss
+
+echo >> main.scss
+
 echo "@import \"base/base\";
 @import \"base/animations\";
 @import \"base/utilities\";
 @import \"base/typography\";" > main.scss
-
-echo >> main.scss
-
-echo "@import \"abstracts/variables\";
-@import \"abstracts/mixins\";
-@import \"abstracts/mixins\";" >> main.scss
